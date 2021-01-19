@@ -18,8 +18,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('news/create', 'Admin\NewsController@add');
      Route::post('news/create', 'Admin\NewsController@create');# 追記
-     Route::get('profile/create','Admin\ProfileController@create');
+     Route::get('profile/create','Admin\ProfileController@add');
      Route::get('profile/cedit','Admin\ProfileController@edit');
+     Route::post('profile/create','Admin\ProfileController@create');
+     Route::post('profile/eddit','Admin\ProfileController@update');
 });
 
 
