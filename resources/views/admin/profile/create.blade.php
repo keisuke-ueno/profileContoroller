@@ -18,20 +18,24 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-1">氏名</label>
-                        <div class="col-md-5">
+                        <label class="col-md-2">氏名</label>
+                        <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
+                    </div>    
                     <div class="form-group row">
                         <label class="col-md-2">性別</label>
                         <div class="col-md-10">
                             <input type="radio" class="radio" name="gender" value="male">
                             <input type="radio" class="radio" name="gender" value="female">
-                        </div>   
+                        </div> 
+                    </div>    
                      <div class="form-group row">
-                        <label class="col-md-1">趣味</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">   
+                        <label class="col-md-2">趣味</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                        </div>
+                    </div>    
                     <div class="form-group row">
                         <label class="col-md-2">自己紹介文</label>
                         <div class="col-md-10">
