@@ -22,6 +22,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('profile/cedit','Admin\ProfileController@edit');
      Route::post('profile/create','Admin\ProfileController@create');
      Route::post('profile/eddit','Admin\ProfileController@update');
+     Route::get('news','Admin\NewsController@index')->middleware('auth');
+     Route::get('news/edit','Admin\NewsController@edit')->middleware('auth');
+     Route::post('news/edit','Admin\NewsController@update')->middleware('auth');
+     route::get('news/delete','Admin\NewsController@delete')->middleware('auth');
 });
 
 
