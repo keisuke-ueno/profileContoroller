@@ -40,6 +40,7 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
+        
         $this->validate($request, Profile::$rules);
         $profile = Profile::find($request->id);
         $profile_form = $request->all();
