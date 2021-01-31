@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\profile;
+use App\ProfileHistory;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -60,8 +62,13 @@ class ProfileController extends Controller
         unset($profile_form['remove']);
         unset($profile_form['_token']);
         
+        $profilehistory = new ProfileHistory;
+        $profilehistory -> profile_id = $profile->id;
+        $profilehistory -> edited_at = Carbon::now();
+        $profilehistory -> save();
+        
         $profile->fill($profile_form)->save();
         //$profile_form->save();
-        return redirect('admin/profile/edit');
+       return redirect('admin/profile/edit?id='.$profile->id);
     }
 }
