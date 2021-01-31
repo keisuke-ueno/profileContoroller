@@ -48,9 +48,9 @@ class ProfileController extends Controller
         if($request->remove == 'true'){
             $profile_form['image_path'] = null;
         }
-        elseif($request->file('image')){
-            $path = $request->file('image')->store('public_image');
-            $profile_form['image_path']->basename($path);
+        elseif($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $profile_form['image_path'] = basename($path);
         }
         else {
             $Profile_form['public_image'] = $profile->image_path;
@@ -60,8 +60,8 @@ class ProfileController extends Controller
         unset($profile_form['remove']);
         unset($profile_form['_token']);
         
-        $profile->fill(profile_form);
-        $profile_form->save();
+        $profile->fill($profile_form)->save();
+        //$profile_form->save();
         return redirect('admin/profile/edit');
     }
 }
